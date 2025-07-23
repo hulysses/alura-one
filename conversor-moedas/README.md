@@ -11,7 +11,7 @@ Este projeto é um conversor de moedas simples desenvolvido em Java, utilizando 
 ## Estrutura do Projeto
 
 - `src\Models\CurrencyResponse.java`: Modelo para resposta da API.
-- `src\Controllers\ConvertCurrency.java`: Lógica de conversão de moedas.
+- `src\Services\ConvertCurrency.java`: Lógica de conversão de moedas.
 - `src\Main.java`: Interface principal do usuário.
 
 ## API Utilizada

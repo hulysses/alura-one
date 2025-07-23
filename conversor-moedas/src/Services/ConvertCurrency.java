@@ -1,4 +1,4 @@
-package Controllers;
+package Services;
 
 import Models.CurrencyResponse;
 import com.google.gson.Gson;

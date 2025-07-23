@@ -1,4 +1,4 @@
-import Controllers.ConvertCurrency;
+import Services.ConvertCurrency;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
