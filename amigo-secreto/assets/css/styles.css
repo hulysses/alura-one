@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", Arial, sans-serif;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1020px;
+  margin: auto;
+}
+
+.padding {
+  padding: 20px 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background-color: #4b69fd;
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-content h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+}
+
+.section-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-content img {
+  width: 250px;
+  height: auto;
+}
+
+.section-content__text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-content__text h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.section-content__text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.game-bg {
+  flex-grow: 1;
+  background-color: #4b69fd;
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.game-content h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.game-content__add {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.game-content__add input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px 0 0 15px;
+  border: 2px solid #000;
+  outline: none;
+}
+
+.game-content__add button,
+.game-content__button {
+  background-color: #ffed83;
+  padding: 15px 30px;
+  border-radius: 0 15px 15px 0;
+  border: 2px solid #000;
+  border-left: none;
+  font-weight: 700;
+}
+
+.game-content__add button:hover,
+.game-content__button:hover {
+  cursor: pointer;
+  background-color: #ffdb58;
+}
+
+.game-content__add input,
+.game-content__add button,
+.game-content__button {
+  font-size: 16px;
+}
+
+.game-content__names {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.game-content__names__list,
+.game-content__names__sort {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #000;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.game-content__names__list h3,
+.game-content__names__sort h3 {
+  background-color: #ffed83;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.125rem;
+  border-bottom: 2px solid #000;
+}
+
+.game-content__names__list ul,
+.game-content__names__sort ul {
+  padding: 10px;
+  list-style: none;
+}
+
+.game-content__names__list li,
+.game-content__names__sort li {
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.game-content__button {
+  border-radius: 15px;
+  border: 2px solid #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-content img {
+    width: 200px;
+  }
+
+  .section-content__text h1 {
+    font-size: 1.75rem;
+  }
+
+  .section-content__text p {
+    font-size: 0.875rem;
+    max-width: 100%;
+  }
+
+  .game-content__add {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .game-content__add input,
+  .game-content__add button {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .game-content__names {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .game-content__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    max-width: 300px;
+  }
+
+  .header-content h2 {
+    font-size: 1rem;
+  }
+
+  .section-content img {
+    width: 150px;
+  }
+
+  .section-content__text h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-content__text p {
+    font-size: 0.75rem;
+  }
+
+  .game-content__add input,
+  .game-content__add button {
+    font-size: 14px;
+  }
+
+  .game-content__names__list h3,
+  .game-content__names__sort h3 {
+    font-size: 1rem;
+  }
+
+  .game-content__names__list li,
+  .game-content__names__sort li {
+    font-size: 0.875rem;
+  }
+}
