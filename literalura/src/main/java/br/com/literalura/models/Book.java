@@ -1,18 +1,21 @@
 package br.com.literalura.models;
 
+import br.com.literalura.dtos.DataBookDTO;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "books")
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String title;
-    private List<String> languages;
+    private String language;
+
+    @Column(name = "download_count")
+    private Integer downloadCount;
 
     @ManyToOne
     private Author author;
@@ -20,11 +23,10 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String title, List<String> languages, Author author) {
-        this.id = id;
-        this.title = title;
-        this.languages = languages;
-        this.author = author;
+    public Book(DataBookDTO data) {
+        this.title = data.title();
+        this.language = data.languages() != null && !data.languages().isEmpty() ? data.languages().get(0) : "Desconhecida";
+        this.downloadCount = data.download_count();
     }
 
     public Long getId() {
@@ -43,6 +45,22 @@ public class Book {
         this.title = title;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public Integer getDownloadCount() {
+        return downloadCount;
+    }
+
+    public void setDownloadCount(Integer downloadCount) {
+        this.downloadCount = downloadCount;
+    }
+
     public Author getAuthor() {
         return author;
     }
@@ -51,11 +69,13 @@ public class Book {
         this.author = author;
     }
 
-    public List<String> getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(List<String> languages) {
-        this.languages = languages;
+    @Override
+    public String toString() {
+        return "\n ------ LIVRO ------" +
+                "\nTítulo: " + title +
+                "\nAutor(es): " + (author.getName().isEmpty() ? "Desconhecido" : author.getName()) +
+                "\nIdioma: " + language +
+                "\nDownloads: " + downloadCount +
+                "\n-------------------";
     }
 }

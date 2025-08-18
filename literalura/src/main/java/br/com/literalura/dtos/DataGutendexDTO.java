@@ -5,10 +5,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record DataBookDTO(
-        String title,
-        List<DataAuthorDTO> authors,
-        List<String> languages,
-        Integer download_count
-) {
+public record DataGutendexDTO(List<DataBookDTO> results) {
 }

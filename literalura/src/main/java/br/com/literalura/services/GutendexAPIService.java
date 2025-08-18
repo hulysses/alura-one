@@ -1,17 +1,20 @@
 package br.com.literalura.services;
 
-import java.io.IOException;
-import java.net.URI;
+import org.springframework.stereotype.Service;
+
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.io.IOException;
+import java.net.URI;
 
+@Service
 public class GutendexAPIService {
 
     private final String BASE_URL = "https://gutendex.com/books?search=";
 
-    public String consumeAPI(String titulo) {
-        String url = BASE_URL + titulo.toLowerCase().replace(" ", "+");
+    public String consumeAPI(String title) {
+        String url = BASE_URL + title.toLowerCase().replace(" ", "+");
 
         HttpClient client = HttpClient.newBuilder()
                 .followRedirects(HttpClient.Redirect.ALWAYS)
@@ -31,4 +34,3 @@ public class GutendexAPIService {
         return json;
     }
 }
-

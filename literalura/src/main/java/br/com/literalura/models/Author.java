@@ -1,24 +1,27 @@
 package br.com.literalura.models;
 
+import br.com.literalura.dtos.DataAuthorDTO;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "authors")
 public class Author {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String name;
 
     @Column(name = "birth_year")
-    private String birthDate;
+    private Integer birthYear;
 
     @Column(name = "death_year")
-    private String deathDate;
+    private Integer deathYear;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Book> book = new ArrayList<>();
@@ -26,11 +29,10 @@ public class Author {
     public Author() {
     }
 
-    public Author(Long id, String name, String birthDate, String deathDate) {
-        this.id = id;
-        this.name = name;
-        this.birthDate = birthDate;
-        this.deathDate = deathDate;
+    public Author(DataAuthorDTO data) {
+        this.name = data.name();
+        this.birthYear = data.birthDate();
+        this.deathYear = data.deathDate();
     }
 
     public Long getId() {
@@ -49,20 +51,20 @@ public class Author {
         this.name = name;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public Integer getBirthYear() {
+        return birthYear;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthYear(Integer birthYear) {
+        this.birthYear = birthYear;
     }
 
-    public String getDeathDate() {
-        return deathDate;
+    public Integer getDeathYear() {
+        return deathYear;
     }
 
-    public void setDeathDate(String deathDate) {
-        this.deathDate = deathDate;
+    public void setDeathYear(Integer deathYear) {
+        this.deathYear = deathYear;
     }
 
     public List<Book> getBook() {
@@ -71,5 +73,17 @@ public class Author {
 
     public void setBook(List<Book> book) {
         this.book = book;
+    }
+
+    @Override
+    public String toString() {
+        return "\n ------ AUTOR ------" +
+                "\nNome: " + name +
+                "\nAno de Nascimento: " + birthYear +
+                "\nAno de Falecimento: " + deathYear +
+                "\nLivros: " + (book.isEmpty() ? "Nenhum livro cadastrado" : book.stream()
+                .map(Book::getTitle)
+                .collect(Collectors.joining(", "))) +
+                "\n-------------------";
     }
 }
