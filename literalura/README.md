@@ -2,7 +2,6 @@
 
 Projeto desenvolvido como parte dos desafios práticos do programa **ONE - Oracle Next Education**.
 
-## Funcionalidades
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17-blue?logo=java" alt="Java">
   <img src="https://img.shields.io/badge/Gutendex-API-blueviolet" alt="Gutendex API">
